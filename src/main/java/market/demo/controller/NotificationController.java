@@ -37,4 +37,9 @@ public class NotificationController {
         notificationService.sendOtpForgotPassword(objectMap);
     }
 
+    @KafkaListener(topics = "mail-change-status-post-topic", groupId = "trade-group")
+    public void sendChangeStatusPost(Map<String,Object> userMaper) throws MessagingException {
+        notificationService.sendChangeStatusPost(userMaper);
+    }
+
 }
